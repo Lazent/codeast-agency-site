@@ -258,14 +258,17 @@ function NetworkCanvas() {
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
     <Box
       sx={{
         position: "relative",
-        pt: { xs: 12, sm: 16, md: 25 },
+        pt: { xs: 14, sm: 16, md: 25 },
         pb: { xs: 8, sm: 12, md: 18 },
         background: "radial-gradient(ellipse at 50% -10%, #1a1a2e 0%, #0d0d14 40%, #000000 80%)",
         overflow: "hidden",
@@ -281,10 +284,11 @@ export default function Hero() {
           maskImage: "radial-gradient(ellipse at 50% 20%, black 30%, transparent 75%)",
           WebkitMaskImage: "radial-gradient(ellipse at 50% 20%, black 30%, transparent 75%)",
           pointerEvents: "none",
+          zIndex: 1
         }}
       />
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 10 }}>
         <Box
           sx={{
             display: "grid",
@@ -373,7 +377,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              style={{ width: "100%" }}
+              style={{ width: "100%", zIndex: 20 }}
             >
               <Stack
                 direction={{ xs: "column", sm: "row" }}
@@ -438,6 +442,7 @@ export default function Hero() {
               width: "100%",
               pointerEvents: "none",
               bgcolor: "transparent",
+              zIndex: 1
             }}
           >
             <Box

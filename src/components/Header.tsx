@@ -24,11 +24,16 @@ export default function Header() {
   };
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Сначала закрываем мобильную шторку, чтобы вернуть фокус на страницу
     setMobileOpen(false);
+    
+    // Небольшой таймаут, чтобы анимация закрытия Drawer не прерывала скролл
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 250);
   };
 
   const menuItems = [
@@ -45,14 +50,15 @@ export default function Header() {
           bgcolor: 'rgba(0, 0, 0, 0.7)', 
           backdropFilter: 'blur(20px)', 
           borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-          boxShadow: 'none'
+          boxShadow: 'none',
+          zIndex: 1300 // Гарантируем, что шапка выше основного контента
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between', height: { xs: 60, md: 70 }, px: { xs: 2, sm: 3 } }}>
           <Typography 
             variant="h6" 
             sx={{ fontWeight: 800, letterSpacing: 1, color: '#ffffff', cursor: 'pointer', fontSize: { xs: '1.1rem', md: '1.25rem' } }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileOpen(false); }}
           >
             CODEAST
           </Typography>
@@ -92,7 +98,7 @@ export default function Header() {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ display: { md: 'none' }, color: '#ffffff', ml: 1 }}
+              sx={{ display: { md: 'none' }, color: '#ffffff', ml: 1, p: 1 }}
             >
               <MenuIcon />
             </IconButton>
@@ -105,6 +111,7 @@ export default function Header() {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
+        sx={{ zIndex: 1400 }} // Drawer должен перекрывать абсолютно всё
         slotProps={{
           paper: {
             sx: {
@@ -118,7 +125,7 @@ export default function Header() {
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 4 }}>
-          <IconButton onClick={handleDrawerToggle} sx={{ color: '#ffffff' }}>
+          <IconButton onClick={handleDrawerToggle} sx={{ color: '#ffffff', p: 1 }}>
             <CloseIcon />
           </IconButton>
         </Box>
@@ -128,7 +135,11 @@ export default function Header() {
             <ListItem key={item.id} disablePadding sx={{ mb: 2 }}>
               <ListItemButton 
                 onClick={() => scrollToSection(item.id)}
-                sx={{ borderRadius: '8px', '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' } }}
+                sx={{ 
+                  borderRadius: '8px', 
+                  py: 1.5,
+                  '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' } 
+                }}
               >
                 <ListItemText 
                   primary={item.text} 
