@@ -48,16 +48,16 @@ export default function Header() {
           boxShadow: 'none'
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between', height: 70 }}>
+        <Toolbar sx={{ justifyContent: 'space-between', height: { xs: 60, md: 70 }, px: { xs: 2, sm: 3 } }}>
           <Typography 
             variant="h6" 
-            sx={{ fontWeight: 800, letterSpacing: 1, color: '#ffffff', cursor: 'pointer' }}
+            sx={{ fontWeight: 800, letterSpacing: 1, color: '#ffffff', cursor: 'pointer', fontSize: { xs: '1.1rem', md: '1.25rem' } }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             CODEAST
           </Typography>
 
-          <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Stack direction="row" spacing={1} sx={{ display: { xs: 'none', md: 'flex' } }}>
             {menuItems.map((item) => (
               <Button 
                 key={item.id}
@@ -80,6 +80,7 @@ export default function Header() {
                 color: '#000000',
                 fontWeight: 600,
                 px: 3,
+                py: 0.8,
                 '&:hover': { bgcolor: '#eaeaea' }
               }}
             >
@@ -91,7 +92,7 @@ export default function Header() {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ display: { md: 'none' }, color: '#ffffff' }}
+              sx={{ display: { md: 'none' }, color: '#ffffff', ml: 1 }}
             >
               <MenuIcon />
             </IconButton>

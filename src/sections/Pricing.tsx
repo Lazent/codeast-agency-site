@@ -44,7 +44,7 @@ export default function Pricing() {
     <Box
       id="cennik"
       sx={{
-        py: 12,
+        py: { xs: 8, md: 12 },
         bgcolor: "#000000",
         borderTop: "1px solid rgba(255,255,255,0.05)",
       }}
@@ -52,15 +52,15 @@ export default function Pricing() {
       <Container maxWidth="lg">
         <Stack
           spacing={2}
-          sx={{ alignItems: "center", textAlign: "center", mb: 8 }}
+          sx={{ alignItems: "center", textAlign: "center", mb: { xs: 5, md: 8 } }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: { xs: "2rem", sm: "2.8rem", md: "3.5rem" },
               fontWeight: 800,
               color: "#ffffff",
-              letterSpacing: -1.5,
+              letterSpacing: -1,
             }}
           >
             Transparentne modele rozliczeń
@@ -87,7 +87,7 @@ export default function Pricing() {
             <Card
               key={i}
               sx={{
-                p: 5,
+                p: { xs: 3, sm: 5 },
                 bgcolor: "#040406",
                 border: tier.featured
                   ? "1px solid #ffffff"
@@ -109,18 +109,18 @@ export default function Pricing() {
                 <Stack spacing={2}>
                   <Typography
                     variant="h4"
-                    sx={{ fontWeight: 700, color: "#ffffff", letterSpacing: -0.5 }}
+                    sx={{ fontWeight: 700, color: "#ffffff", letterSpacing: -0.5, fontSize: "1.5rem" }}
                   >
                     {tier.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "#888888", minHeight: 40, lineHeight: 1.5 }}>
+                  <Typography variant="body2" sx={{ color: "#888888", minHeight: { xs: "auto", md: 40 }, lineHeight: 1.5 }}>
                     {tier.desc}
                   </Typography>
 
                   <Stack direction="row" sx={{ alignItems: "baseline", pt: 1 }}>
                     <Typography
                       variant="h3"
-                      sx={{ fontWeight: 800, color: "#ffffff", letterSpacing: -1 }}
+                      sx={{ fontWeight: 800, color: "#ffffff", letterSpacing: -1, fontSize: { xs: "2rem", md: "2.5rem" } }}
                     >
                       {tier.price}
                     </Typography>
@@ -140,7 +140,7 @@ export default function Pricing() {
                         sx={{ alignItems: "center" }}
                         key={idx}
                       >
-                        <CheckIcon sx={{ color: "#ffffff", fontSize: 16 }} />
+                        <CheckIcon sx={{ color: "#ffffff", fontSize: 16, flexShrink: 0 }} />
                         <Typography variant="body2" sx={{ color: "#aaaaaa", fontWeight: 400 }}>
                           {feature}
                         </Typography>

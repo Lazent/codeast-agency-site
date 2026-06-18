@@ -265,8 +265,8 @@ export default function Hero() {
     <Box
       sx={{
         position: "relative",
-        pt: { xs: 16, md: 25 },
-        pb: { xs: 12, md: 18 },
+        pt: { xs: 12, sm: 16, md: 25 },
+        pb: { xs: 8, sm: 12, md: 18 },
         background: "radial-gradient(ellipse at 50% -10%, #1a1a2e 0%, #0d0d14 40%, #000000 80%)",
         overflow: "hidden",
       }}
@@ -289,7 +289,7 @@ export default function Hero() {
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1.2fr 0.8fr" },
-            gap: { xs: 8, md: 5 },
+            gap: { xs: 4, md: 5 },
             alignItems: "center",
           }}
         >
@@ -310,7 +310,7 @@ export default function Hero() {
                 variant="overline"
                 sx={{
                   color: "rgba(255,255,255,0.65)",
-                  letterSpacing: 3,
+                  letterSpacing: 2,
                   fontWeight: 600,
                   border: "1px solid rgba(255,255,255,0.1)",
                   px: 2,
@@ -318,7 +318,7 @@ export default function Hero() {
                   borderRadius: "20px",
                   bgcolor: "rgba(255,255,255,0.02)",
                   backdropFilter: "blur(10px)",
-                  fontSize: "0.72rem",
+                  fontSize: { xs: "0.65rem", sm: "0.72rem" },
                 }}
               >
                 NEXT-GEN AI ARCHITECTURE
@@ -333,14 +333,14 @@ export default function Hero() {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "2.8rem", sm: "3.8rem", md: "4.5rem" },
+                  fontSize: { xs: "2.2rem", sm: "3.2rem", md: "4.5rem" },
                   fontWeight: 800,
-                  lineHeight: 1.12,
+                  lineHeight: { xs: 1.2, sm: 1.12 },
                   background: "linear-gradient(180deg, #FFFFFF 20%, #666666 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
-                  letterSpacing: -2,
+                  letterSpacing: { xs: -1, sm: -2 },
                   pb: 1.5,
                 }}
               >
@@ -359,7 +359,7 @@ export default function Hero() {
                   color: "#888888",
                   maxWidth: 520,
                   fontWeight: 400,
-                  fontSize: "1.05rem",
+                  fontSize: { xs: "0.95rem", sm: "1.05rem" },
                   lineHeight: 1.65,
                 }}
               >
@@ -373,11 +373,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
+              style={{ width: "100%" }}
             >
               <Stack
                 direction={{ xs: "column", sm: "row" }}
                 spacing={2}
-                sx={{ width: { xs: "100%", sm: "auto" } }}
+                sx={{ width: { xs: "100%", sm: "auto" }, justifyContent: { xs: "center", md: "flex-start" } }}
               >
                 <Button
                   variant="contained"
@@ -393,6 +394,7 @@ export default function Hero() {
                     fontSize: "0.95rem",
                     textTransform: "none",
                     boxShadow: "none",
+                    width: { xs: "100%", sm: "auto" },
                     "&:hover": { bgcolor: "#e8e8e8", boxShadow: "none" },
                   }}
                 >
@@ -411,6 +413,7 @@ export default function Hero() {
                     borderRadius: "6px",
                     fontSize: "0.95rem",
                     textTransform: "none",
+                    width: { xs: "100%", sm: "auto" },
                     "&:hover": {
                       borderColor: "rgba(255,255,255,0.45)",
                       bgcolor: "rgba(255,255,255,0.03)",

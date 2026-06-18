@@ -45,20 +45,20 @@ export default function Contact() {
     <Box
       id="kontakt"
       sx={{
-        py: 12,
+        py: { xs: 8, md: 12 },
         bgcolor: "#000000",
         borderTop: "1px solid rgba(255,255,255,0.05)",
       }}
     >
       <Container maxWidth="sm">
         <Stack
-          spacing={3}
-          sx={{ alignItems: "center", textAlign: "center", mb: 6 }}
+          spacing={2}
+          sx={{ alignItems: "center", textAlign: "center", mb: { xs: 4, md: 6 } }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: { xs: "2rem", sm: "2.8rem", md: "3.5rem" },
               fontWeight: 800,
               color: "#ffffff",
               letterSpacing: -1,
@@ -71,7 +71,7 @@ export default function Contact() {
           </Typography>
         </Stack>
 
-        <Box component="form" onSubmit={handleSubmit}>
+        <Box component="form" onSubmit={handleSubmit} sx={{ px: { xs: 1, sm: 0 } }}>
           <Stack spacing={3}>
             <TextField
               label="Imię i Nazwisko"

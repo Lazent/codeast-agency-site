@@ -23,12 +23,12 @@ const features = [
 
 export default function Features() {
   return (
-    <Box id="mozliwosci" sx={{ py: 12, bgcolor: '#000000', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <Box id="mozliwosci" sx={{ py: { xs: 8, md: 12 }, bgcolor: '#000000', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
       <Container maxWidth="lg">
         <Box 
           sx={{ 
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+            gridTemplateColumns: { xs: '1fr', sm: '1fr', md: 'repeat(3, 1fr)' },
             gap: 4
           }}
         >
@@ -36,7 +36,7 @@ export default function Features() {
             <Card 
               key={i}
               sx={{ 
-                p: 4, 
+                p: { xs: 3, sm: 4 }, 
                 bgcolor: '#040406', 
                 border: '1px solid rgba(255,255,255,0.05)',
                 borderRadius: '16px',
