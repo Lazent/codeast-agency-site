@@ -52,7 +52,11 @@ export default function Pricing() {
       <Container maxWidth="lg">
         <Stack
           spacing={2}
-          sx={{ alignItems: "center", textAlign: "center", mb: { xs: 5, md: 8 } }}
+          sx={{
+            alignItems: "center",
+            textAlign: "center",
+            mb: { xs: 5, md: 8 },
+          }}
         >
           <Typography
             variant="h2"
@@ -67,9 +71,16 @@ export default function Pricing() {
           </Typography>
           <Typography
             variant="h5"
-            sx={{ color: "#888888", maxWidth: 600, fontWeight: 400, fontSize: "1.1rem", lineHeight: 1.6 }}
+            sx={{
+              color: "#888888",
+              maxWidth: 600,
+              fontWeight: 400,
+              fontSize: "1.1rem",
+              lineHeight: 1.6,
+            }}
           >
-            Inwestycja w automatyzację, która generuje mierzalny wzrost efektywności operacyjnej od pierwszego dnia wdrożenia.
+            Inwestycja w automatyzację, która generuje mierzalny wzrost
+            efektywności operacyjnej od pierwszego dnia wdrożenia.
           </Typography>
         </Stack>
 
@@ -90,7 +101,7 @@ export default function Pricing() {
                 p: { xs: 3, sm: 5 },
                 bgcolor: "#040406",
                 border: tier.featured
-                  ? "1px solid #ffffff"
+                  ? "1px solid #8b5cf6"
                   : "1px solid rgba(255,255,255,0.05)",
                 borderRadius: "16px",
                 height: "100%",
@@ -98,8 +109,10 @@ export default function Pricing() {
                 flexDirection: "column",
                 transition: "borderColor 0.3s ease",
                 "&:hover": {
-                  borderColor: "rgba(255,255,255,0.3)"
-                }
+                  borderColor: tier.featured
+                    ? "#a855f7"
+                    : "rgba(139, 92, 246, 0.25)",
+                },
               }}
             >
               <Stack
@@ -109,18 +122,35 @@ export default function Pricing() {
                 <Stack spacing={2}>
                   <Typography
                     variant="h4"
-                    sx={{ fontWeight: 700, color: "#ffffff", letterSpacing: -0.5, fontSize: "1.5rem" }}
+                    sx={{
+                      fontWeight: 700,
+                      color: "#ffffff",
+                      letterSpacing: -0.5,
+                      fontSize: "1.5rem",
+                    }}
                   >
                     {tier.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "#888888", minHeight: { xs: "auto", md: 40 }, lineHeight: 1.5 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "#888888",
+                      minHeight: { xs: "auto", md: 40 },
+                      lineHeight: 1.5,
+                    }}
+                  >
                     {tier.desc}
                   </Typography>
 
                   <Stack direction="row" sx={{ alignItems: "baseline", pt: 1 }}>
                     <Typography
                       variant="h3"
-                      sx={{ fontWeight: 800, color: "#ffffff", letterSpacing: -1, fontSize: { xs: "2rem", md: "2.5rem" } }}
+                      sx={{
+                        fontWeight: 800,
+                        color: "#ffffff",
+                        letterSpacing: -1,
+                        fontSize: { xs: "2rem", md: "2.5rem" },
+                      }}
                     >
                       {tier.price}
                     </Typography>
@@ -140,8 +170,13 @@ export default function Pricing() {
                         sx={{ alignItems: "center" }}
                         key={idx}
                       >
-                        <CheckIcon sx={{ color: "#ffffff", fontSize: 16, flexShrink: 0 }} />
-                        <Typography variant="body2" sx={{ color: "#aaaaaa", fontWeight: 400 }}>
+                        <CheckIcon
+                          sx={{ color: "#ffffff", fontSize: 16, flexShrink: 0 }}
+                        />
+                        <Typography
+                          variant="body2"
+                          sx={{ color: "#aaaaaa", fontWeight: 400 }}
+                        >
                           {feature}
                         </Typography>
                       </Stack>

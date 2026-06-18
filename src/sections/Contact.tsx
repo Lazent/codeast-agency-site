@@ -22,19 +22,23 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
 
-    const SERVICE_ID = "service_c4s37pd"; 
+    const SERVICE_ID = "service_c4s37pd";
     const TEMPLATE_ID = "template_v9s9ers";
     const PUBLIC_KEY = "efYB30C4gl-4ORugG";
 
     emailjs
       .send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
       .then(() => {
-        alert(`Dziękujemy ${formData.name}! Wiadomość została pomyślnie wysłana.`);
+        alert(
+          `Dziękujemy ${formData.name}! Wiadomość została pomyślnie wysłana.`,
+        );
         setFormData({ name: "", company: "", email: "", msg: "" });
       })
       .catch((err) => {
         console.error("Błąd EmailJS:", err);
-        alert("Coś poszło nie tak podczas wysyłania. Spróbuj ponownie później.");
+        alert(
+          "Coś poszło nie tak podczas wysyłania. Spróbuj ponownie później.",
+        );
       })
       .finally(() => {
         setLoading(false);
@@ -53,7 +57,11 @@ export default function Contact() {
       <Container maxWidth="sm">
         <Stack
           spacing={2}
-          sx={{ alignItems: "center", textAlign: "center", mb: { xs: 4, md: 6 } }}
+          sx={{
+            alignItems: "center",
+            textAlign: "center",
+            mb: { xs: 4, md: 6 },
+          }}
         >
           <Typography
             variant="h2"
@@ -66,12 +74,25 @@ export default function Contact() {
           >
             Inicjuj transformację
           </Typography>
-          <Typography variant="h5" sx={{ color: "#888888", fontWeight: 400, fontSize: "1.1rem", lineHeight: 1.6 }}>
-            Zostaw kontakt. Przeanalizujemy architekturę Twoich procesów i zaproponujemy dedykowaną strategię wdrożenia systemów AI.
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#888888",
+              fontWeight: 400,
+              fontSize: "1.1rem",
+              lineHeight: 1.6,
+            }}
+          >
+            Zostaw kontakt. Przeanalizujemy architekturę Twoich procesów i
+            zaproponujemy dedykowaną strategię wdrożenia systemów AI.
           </Typography>
         </Stack>
 
-        <Box component="form" onSubmit={handleSubmit} sx={{ px: { xs: 1, sm: 0 } }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{ px: { xs: 1, sm: 0 } }}
+        >
           <Stack spacing={3}>
             <TextField
               label="Imię i Nazwisko"
@@ -89,7 +110,10 @@ export default function Contact() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
-                  "&:hover fieldset": { borderColor: "#ffffff" },
+                  "&:hover fieldset": {
+                    borderColor: "rgba(139, 92, 246, 0.5)",
+                  },
+                  "&.Mui-focused fieldset": { borderColor: "#8b5cf6" },
                 },
               }}
             />
@@ -109,7 +133,10 @@ export default function Contact() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
-                  "&:hover fieldset": { borderColor: "#ffffff" },
+                  "&:hover fieldset": {
+                    borderColor: "rgba(139, 92, 246, 0.5)",
+                  },
+                  "&.Mui-focused fieldset": { borderColor: "#8b5cf6" },
                 },
               }}
             />
@@ -130,7 +157,10 @@ export default function Contact() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
-                  "&:hover fieldset": { borderColor: "#ffffff" },
+                  "&:hover fieldset": {
+                    borderColor: "rgba(139, 92, 246, 0.5)",
+                  },
+                  "&.Mui-focused fieldset": { borderColor: "#8b5cf6" },
                 },
               }}
             />
@@ -151,7 +181,10 @@ export default function Contact() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
-                  "&:hover fieldset": { borderColor: "#ffffff" },
+                  "&:hover fieldset": {
+                    borderColor: "rgba(139, 92, 246, 0.5)",
+                  },
+                  "&.Mui-focused fieldset": { borderColor: "#8b5cf6" },
                 },
               }}
             />
@@ -172,7 +205,9 @@ export default function Contact() {
                 "&:hover": { bgcolor: "#eaeaea" },
               }}
             >
-              {loading ? "Wysyłanie zapytania..." : "Konsultacja technologiczna"}
+              {loading
+                ? "Wysyłanie zapytania..."
+                : "Konsultacja technologiczna"}
             </Button>
           </Stack>
         </Box>
