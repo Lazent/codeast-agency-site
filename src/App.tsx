@@ -8,7 +8,7 @@ import About from './sections/About'
 
 function App() {
   return (
-    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', color: 'text.primary' }}>
+    <Box sx={{ width: '100%', overflowX: 'hidden' }}>
       <Header />
       <Hero />
       <About />

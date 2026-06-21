@@ -4,10 +4,10 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#ffffff',
+      main: '#8b5cf6',
     },
     secondary: {
-      main: '#0070f3',
+      main: '#6366f1',
     },
     background: {
       default: '#000000',
@@ -30,15 +30,36 @@ const theme = createTheme({
       letterSpacing: '-0.03em',
     },
   },
-  // Замени только блок components в src/theme/theme.ts:
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          margin: 0,
+          padding: 0,
+          width: '100%',
+          height: '100%',
+          scrollBehavior: 'smooth',
+        },
+        body: {
+          margin: 0,
+          padding: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#000000',
+          overflowX: 'hidden',
+        },
+        '#root': {
+          width: '100%',
+          height: '100%',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
           borderRadius: '6px',
           textTransform: 'none',
           fontWeight: 500,
-          // Стили для contained кнопок
           '&.MuiButton-containedPrimary': {
             backgroundColor: '#ffffff',
             color: '#000000',
@@ -46,13 +67,12 @@ const theme = createTheme({
               backgroundColor: '#eaeaea',
             },
           },
-          // Стили для outlined кнопок
           '&.MuiButton-outlinedPrimary': {
             borderColor: 'rgba(255, 255, 255, 0.2)',
             color: '#ffffff',
             '&:hover': {
-              borderColor: '#ffffff',
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              borderColor: '#8b5cf6',
+              backgroundColor: 'rgba(139, 92, 246, 0.05)',
             },
           },
         },
