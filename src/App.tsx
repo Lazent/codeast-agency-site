@@ -5,6 +5,7 @@ import Pricing from './sections/Pricing'
 import { Box } from '@mui/material'
 import Contact from './sections/Contact'
 import About from './sections/About'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Features />
       <Pricing />
       <Contact />
+      <Footer />
     </Box>
   )
 }
